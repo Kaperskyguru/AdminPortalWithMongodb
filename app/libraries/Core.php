@@ -49,7 +49,6 @@ class Core
         // Get Params, if any
 
         $this->params = $url ? array_values($url) : [];
-
         // call a callback function with param arrays
         // simply set parameters to the giving method inside the giving class
         // e.g function edit($id){

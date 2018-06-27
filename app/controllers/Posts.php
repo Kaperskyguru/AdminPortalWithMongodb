@@ -17,13 +17,35 @@ class Posts extends Controller
 
     public function index()
     {
+
         $data = $this->postModel->getPosts();
         $this->view('posts/index', $data);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $this->view('posts/edit');
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['post_title'])){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $condition = [
+                    "_id" => new MongoDB\BSON\ObjectId($id)
+                ];
+
+                $data = [
+                    '$set' => ["post_title" => trim($_POST['post_title'])],
+                    '$set' => ["post_desc" => trim($_POST['post_desc'])],
+                    '$set' => ["post_tag" => $_POST['post_tag']],
+                    '$set' => ["post_category" => $_POST['post_category']],
+                ];
+
+                $this->postModel->updatePost($condition, $data);
+            }
+        } else {
+            $filter = ['_id' => new MongoDB\BSON\ObjectId($id)];
+            $data = $this->postModel->getPostById($filter);
+        }
+        $this->view('posts/edit', $data);
     }
 
     public function add()
@@ -34,7 +56,7 @@ class Posts extends Controller
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 $data = [
                     'post_title' => trim($_POST['post_title']),
-                    'post_desc' => $_POST['post_desc'],
+                    'post_desc' => $_POST['post_desc1'],
                     'post_tag' => $_POST['post_tag'],
                     'post_category' => $_POST['post_category'],
                     'status' => $_POST['status'],

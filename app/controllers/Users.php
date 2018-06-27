@@ -22,7 +22,8 @@ class Users extends Controller
 
     public function index()
     {
-        $this->view('users/index');
+        $data = $this->userModel->getUsers();
+        $this->view('users/index', $data);
     }
 
     public function add()
@@ -34,10 +35,9 @@ class Users extends Controller
                 $data = [
                     'full_name' => trim($_POST['full_name']),
                     'addUserEditor' => $_POST['addUserEditor'],
-                    'about_me' => $_POST['about_me'],
+                    'email' => $_POST['email'],
                     'user_role' => $_POST['user_role'],
                     'status' => $_POST['status'],
-                    'user_author' => 'Solomon Eseme',
                     'user_created' => new DateTime()
                 ];
                 $insertedId = $this->userModel->insertUser($data);

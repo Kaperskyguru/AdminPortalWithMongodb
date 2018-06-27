@@ -163,4 +163,9 @@ class Database
         }
         return null;
     }
+
+    public function count()
+    {
+        return $this->dbh->count();
+    }
 }

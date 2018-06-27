@@ -17,7 +17,18 @@ class Homes extends Controller
 
     public function index()
     {
-        $this->view('home/index');
+        $countPages = $this->homeModel->count('pages');
+        $countPosts = $this->homeModel->count('posts');
+        $countUsers = $this->homeModel->count('users');
+        $userData = $this->homeModel->getUsers();
+
+        $data = [
+            'postCount' => $countPosts,
+            'pageCount' => $countPages,
+            'userCount' => $countUsers,
+            'users' => $userData
+        ];
+        $this->view('home/index', $data);
     }
 
     public function about()

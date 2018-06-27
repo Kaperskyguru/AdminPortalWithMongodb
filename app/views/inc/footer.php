@@ -60,8 +60,8 @@
       <input type="text" id="post_title" name="post_title" class="form-control" placeholder="Post Title">
     </div>
     <div class="form-group">
-      <label for="post_desc">Post Body</label>
-      <textarea name="post_desc" id="post_desc" class="form-control" rows="8" cols="80"></textarea>
+      <label for="post_desc1">Post Body</label>
+      <textarea name="post_desc1" id="post_desc1" class="form-control" rows="8" cols="80"></textarea>
     </div>
     <div class="checkbox">
       <label for="status">
@@ -90,7 +90,7 @@
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-  <form>
+  <form method="post" action="<?php echo htmlspecialchars(SITEURL.'/users/add')?>" role="form">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <h4 class="modal-title" id="myModalLabel">Add New User</h4>
@@ -114,8 +114,8 @@
       <input type="text" name="user_role" id="user_role" class="form-control" placeholder="Enter Use Role...">
     </div>
     <div class="form-group">
-      <label for="about_me">About Me</label>
-      <input type="text" id="about_me" name="about_me" class="form-control" placeholder="Describe yourself...">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email...">
     </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -128,13 +128,16 @@
 </div>
 
 <script>
-CKEDITOR.replace( 'post_desc' );
+CKEDITOR.replace( 'post_desc1' );
 </script>
 <script>
 CKEDITOR.replace( 'addPageEditor' );
 </script>
 <script>
 CKEDITOR.replace( 'addUserEditor' );
+</script>
+<script>
+CKEDITOR.replace( 'post_desc' );
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo SITEURL;?>/js/bootstrap.min.js"></script>

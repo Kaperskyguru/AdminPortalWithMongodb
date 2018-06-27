@@ -3,7 +3,7 @@
       <a href="<?php echo SITEURL?>" class="list-group-item active main-color-bg">
         <span class="fa fa-cog" aria-hidden="true"></span> Dashboard
       </a>
-      <a href="<?php echo SITEURL?>/posts/" class="list-group-item"><span class="fa fa-list-alt" aria-hidden="true"></span> Posts<span class="badge">33</span></a>
+      <a href="<?php echo SITEURL?>/posts/" class="list-group-item"><span class="fa fa-list-alt" aria-hidden="true"></span> Posts<span class="badge"><?php echo 33//$data['postCount'] ?></span></a>
       <a href="<?php echo SITEURL?>/pages/" class="list-group-item"><span class="fa fa-pencil" aria-hidden="true"></span> Pages <span class="badge">29</span></a>
       <a href="<?php echo SITEURL?>/users/" class="list-group-item"><span class="fa fa-users" aria-hidden="true"></span> Users <span class="badge">30</span></a>
   </div>

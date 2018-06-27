@@ -48,26 +48,26 @@
                 <form class="" action="<?php echo SITEURL ?>/posts/edit" method="post">
                   <div class="form-group">
           					<label>Post Title</label>
-          					<input type="text" class="form-control" placeholder="Post Title" value="Blog Post 1">
+          					<input type="text" class="form-control" placeholder="Post Title" value="<?php echo $data['post_title']; ?>">
           	      </div>
           				<div class="form-group">
           					<label for="">Post Body</label>
-          					<textarea name="addPageEditor" class="form-control" rows="8" cols="80">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </textarea>
+          					<textarea name="post_desc" id="post_desc" value="" class="form-control" rows="8" cols="80">
+								<?php echo htmlspecialchars($data['post_desc']); ?>
+                    		</textarea>
           				</div>
           				<div class="checkbox">
           					<label for="">
-          						<input type="checkbox" checked> Published
+          						<input type="checkbox" <?php echo $retVal = (isset($data['status'])) ? 'checked' : ''; ?>> Published
           					</label>
           				</div>
           				<div class="form-group">
           					<label for="">Meta Tags</label>
-          					<input type="text" class="form-control" value="tag1, tag2, tag3" placeholder="Add Some Tags...">
+          					<input type="text" class="form-control" value="<?php echo $data['post_tag']; ?>" placeholder="Add Some Tags...">
           				</div>
           				<div class="form-group">
-          					<label for="">Meta Description</label>
-          					<input type="text" class="form-control" placeholder="Add Meta Description..." value="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt">
+          					<label for="">Post Category</label>
+          					<input type="text" class="form-control" value="<?php echo $data['post_category']; ?>">
           				</div>
                   <input type="submit" name="" class="btn btn-default" value="Submit">
                 </form>

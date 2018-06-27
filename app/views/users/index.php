@@ -60,36 +60,16 @@
 						      </tr>
 						    </thead>
 						    <tbody>
+							  <?php foreach ($data as $user):?>
 						      <tr>
-						        <td>John Doe</td>
-						        <td>john@example.com</td>
-						        <td>Dec 12, 2018</td>
-                    <td><a href="<?php echo SITEURL ?>/users/edit" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+						        <td><?php echo $user['full_name']; ?></td>
+						        <td><?php echo $user['email']; ?></td>
+						        <td><?php echo get_formatted_date($user['user_created']['date']); ?></td>
+                    			<td>
+									<a href="<?php echo SITEURL ?>/users/edit/<?php echo $user['_id']; ?>" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a>
+								</td>
 						      </tr>
-						      <tr>
-						        <td>Mary Moe</td>
-						        <td>mary@example.com</td>
-						        <td>Jan 3, 2015</td>
-                    <td><a href="<?php echo SITEURL ?>/users/edit" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
-						      </tr>
-						      <tr>
-						        <td>July Dooley</td>
-						        <td>july@example.com</td>
-						        <td>Jul 17, 2013</td>
-                    <td><a href="<?php echo SITEURL ?>/users/edit" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
-						      </tr>
-									<tr>
-						        <td>Mary Moe</td>
-						        <td>mary@example.com</td>
-						        <td>Jan 3, 2015</td>
-                    <td><a href="<?php echo SITEURL ?>/users/edit" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
-						      </tr>
-						      <tr>
-						        <td>July Dooley</td>
-						        <td>july@example.com</td>
-						        <td>Jul 17, 2013</td>
-                    <td><a href="<?php echo SITEURL ?>/users/edit" class="btn btn-default">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
-						      </tr>
+						  <?php endforeach; ?>
 						    </tbody>
 						  </table>
 					</div>

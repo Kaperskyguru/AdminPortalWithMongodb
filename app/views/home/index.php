@@ -43,20 +43,20 @@
 						  <div class="panel-body">
 						  	<div class="col-md-3">
 						  		<div class="well dash-box">
-						  			<h2><span class="fa fa-user" aria-hidden="true"></span> 500</h2>
+						  			<h2><span class="fa fa-user" aria-hidden="true"></span> <?php echo $data['userCount']; ?></h2>
 						  			<h4>Users</h4>
 						  		</div>
 						  	</div>
 
 						  	<div class="col-md-3">
 						  		<div class="well dash-box">
-						  			<h2><span class="fa fa-list-alt" aria-hidden="true"></span> 12</h2>
+						  			<h2><span class="fa fa-list-alt" aria-hidden="true"></span> <?php echo $data['pageCount']; ?></h2>
 						  			<h4>Pages</h4>
 						  		</div>
 						  	</div>
 								<div class="col-md-3">
 						  		<div class="well dash-box">
-						  			<h2><span class="fa fa-pencil" aria-hidden="true"></span> 1,678</h2>
+						  			<h2><span class="fa fa-pencil" aria-hidden="true"></span> <?php echo $data['postCount']; ?></h2>
 						  			<h4>Posts</h4>
 						  		</div>
 						  </div>
@@ -83,32 +83,14 @@
 						      </tr>
 						    </thead>
 						    <tbody>
+								<?php foreach($data['users'] as $user):?>
 						      <tr>
-						        <td>John Doe</td>
-						        <td>john@example.com</td>
-						        <td>Dec 12, 2018</td>
+						        <td><?php echo $user['full_name']; ?></td>
+						        <td><?php echo $user['email']; ?></td>
+						        <td><?php echo get_formatted_date($user['user_created']['date']); ?></td>
 						      </tr>
-						      <tr>
-						        <td>Mary Moe</td>
-						        <td>mary@example.com</td>
-						        <td>Jan 3, 2015</td>
-						      </tr>
-						      <tr>
-						        <td>July Dooley</td>
-						        <td>july@example.com</td>
-						        <td>Jul 17, 2013</td>
-						      </tr>
-									<tr>
-						        <td>Mary Moe</td>
-						        <td>mary@example.com</td>
-						        <td>Jan 3, 2015</td>
-						      </tr>
-						      <tr>
-						        <td>July Dooley</td>
-						        <td>july@example.com</td>
-						        <td>Jul 17, 2013</td>
-						      </tr>
-						    </tbody>
+						  <?php endforeach;?>
+-						    </tbody>
 						  </table>
 						</div>
 				</div>
